@@ -6,4 +6,4 @@ This is a Java 17 project using maven as the build system.
 
 ## Building, running and testing
 Open in VSCode (with the [Extension Pack for Java](https://open-vsx.org/extension/vscjava/vscode-java-pack) installed) and execute the main method. Alternatively, run using maven directly.
-Test written with JUnit (dependancy handled by Maven).
+Tests written with JUnit (dependency handled by Maven).
