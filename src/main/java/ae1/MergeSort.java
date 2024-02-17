@@ -6,7 +6,7 @@ public class MergeSort extends Sorter {
 		super("MergeSort", new int[]{});
 	}
 
-	public static void merge(int[] array, int left, int mid, int right) {
+	public void merge(int left, int mid, int right) {
 		int n1 = mid - left + 1;
 		int n2 = right - mid;
 
@@ -51,7 +51,7 @@ public class MergeSort extends Sorter {
 			int mid = left + (right - left) / 2;
 			sort(left, mid);
 			sort(mid + 1, right);
-			merge(array, left, mid, right);
+			merge(left, mid, right);
 		}
 	}
 }
