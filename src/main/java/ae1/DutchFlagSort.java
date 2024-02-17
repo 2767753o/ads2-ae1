@@ -2,6 +2,10 @@ package ae1;
 
 public class DutchFlagSort extends QuickSort {
 
+	public DutchFlagSort() {
+		this.name = "DutchFlagSort";
+	}
+
 	@Override
 	public void sort(int low, int high) {
 		if (low < high) {

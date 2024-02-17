@@ -35,4 +35,9 @@ public class QuickSort extends Sorter {
 			sort(pivot + 1, upper);
 		}
 	}
+
+	@Override
+	public void sort() {
+		sort(0, array.length - 1);
+	}
 }

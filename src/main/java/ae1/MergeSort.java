@@ -45,7 +45,6 @@ public class MergeSort extends Sorter {
 		}
 	}
 
-
 	public void sort(int left, int right) {
 		if (left < right) {
 			int mid = left + (right - left) / 2;
@@ -53,5 +52,10 @@ public class MergeSort extends Sorter {
 			sort(mid + 1, right);
 			merge(left, mid, right);
 		}
+	}
+
+	@Override
+	public void sort() {
+		sort(0, array.length - 1);
 	}
 }
