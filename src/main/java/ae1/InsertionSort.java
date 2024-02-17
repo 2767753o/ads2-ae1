@@ -23,10 +23,4 @@ public class InsertionSort extends Sorter {
 	public void sort() {
 		sort(0, array.length - 1);
 	}
-
-	@Override
-	public String getName() {
-		return "InsertionSort";
-	}
-
 }

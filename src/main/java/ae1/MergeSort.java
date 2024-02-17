@@ -5,45 +5,31 @@ public class MergeSort extends Sorter {
 	public MergeSort() {
 		super("MergeSort", new int[]{});
 	}
-
+	
 	public void merge(int left, int mid, int right) {
-		int n1 = mid - left + 1;
-		int n2 = right - mid;
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
 
-		int[] L = new int[n1];
-		int[] R = new int[n2];
+        int[] L = new int[n1];
+        int[] R = new int[n2];
 
-		for (int i = 0; i < n1; ++i)
-			L[i] = array[left + i];
-		for (int j = 0; j < n2; ++j)
-			R[j] = array[mid + 1 + j];
+        System.arraycopy(array, left, L, 0, n1);
+        System.arraycopy(array, mid + 1, R, 0, n2);
 
-		int i = 0, j = 0;
+        int i = 0, j = 0, k = left;
 
-		int k = left;
-		while (i < n1 && j < n2) {
-			if (L[i] <= R[j]) {
-				array[k] = L[i];
-				i++;
-			} else {
-				array[k] = R[j];
-				j++;
-			}
-			k++;
-		}
+        while (i < n1 && j < n2) {
+            array[k++] = (L[i] <= R[j]) ? L[i++] : R[j++];
+        }
 
-		while (i < n1) {
-			array[k] = L[i];
-			i++;
-			k++;
-		}
+        while (i < n1) {
+            array[k++] = L[i++];
+        }
 
-		while (j < n2) {
-			array[k] = R[j];
-			j++;
-			k++;
-		}
-	}
+        while (j < n2) {
+            array[k++] = R[j++];
+        }
+    }
 
 	public void sort(int left, int right) {
 		if (left < right) {

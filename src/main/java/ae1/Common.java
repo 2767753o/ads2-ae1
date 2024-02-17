@@ -29,4 +29,22 @@ public class Common {
 		return convertListToIntArray(integers);
 	}
 
+	public static int[] findILargestInArray(int[] xs, int i) {
+		int[] ys = new int[i];
+		MergeSort ms = new MergeSort();
+
+		if (i >= xs.length) {
+			return new int[] {};
+		}
+
+		ms.setArray(xs.clone());
+		ms.sort();
+		int[] sorted = ms.getArray();
+
+		for (int j = 0; j < i; j++) {
+			ys[j] = sorted[xs.length - j - 1];
+		}
+
+		return ys;
+	}
 }

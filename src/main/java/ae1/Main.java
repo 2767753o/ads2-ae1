@@ -6,6 +6,11 @@ import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
+		// run();
+
+	}
+
+	public static void run() {
 		String resources = "/home/john/Documents/ADS2/ads2-ae1/src/main/resources/";
 		String[] filenames = {
 				"bad.txt",
@@ -16,14 +21,19 @@ public class Main {
 				"intBig.txt",
 		};
 		List<SortingAlgorithm> sortTypes = new ArrayList<>();
-		int n = 10;
-		int k = 3;
+		int n = 5;
+		int k = 10;
 		int[] array = {};
 
 		sortTypes.add(new QuickSort());
-		sortTypes.add(new DutchFlagSort());
 		sortTypes.add(new QuickInsertionSort(k));
+		sortTypes.add(new DutchFlagSort());
+		sortTypes.add(new ShellSort());
+		// sortTypes.add(new InsertionSort());
+		// sortTypes.add(new SelectionSort());
+		sortTypes.add(new MergeSort());
 
+		long startTime = System.currentTimeMillis();
 		for (String filename : filenames) {
 			try {
 				String fullPath = resources + filename;
@@ -51,8 +61,11 @@ public class Main {
 					System.out.printf("\t%d: %d milliseconds\n", i, timeDifference);
 				}
 				long timeAverage = timeTotal / n;
-				System.out.printf("\tAverage time: %d milliseconds\n\n", timeAverage);
+				System.out.printf("  Average time (%d runs): %d milliseconds\n\n", n, timeAverage);
 			}
 		}
+		long endTime = System.currentTimeMillis();
+		long totalTestTime = endTime - startTime;
+		System.out.printf("Total time of all tests: %d seconds\n", totalTestTime / 1000);
 	}
 }
